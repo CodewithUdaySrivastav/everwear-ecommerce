@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>EVERWEAR</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<nav class="navbar">
+
+    <div class="logo">
+        EVERWEAR
+    </div>
+
+   <div class="search">
+
+<form action="/search" method="GET">
+
+<input
+type="text"
+name="q"
+placeholder="Search Products">
+
+<button type="submit" style="display:none;">
+Search
+</button>
+
+</form>
+
+</div>
+
+    <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/cart">Cart</a></li>
+        {% if session.get('user_id') %}
+
+<li>
+    <a href="#">
+        {{ session['user_name'] }}
+    </a>
+</li>
+
+<li>
+    <a href="/logout">
+        Logout
+    </a>
+</li>
+
+{% else %}
+
+<li>
+    <a href="/login">
+        Login
+    </a>
+</li>
+{% if session.get('role') == 'admin' %}
+
+<li>
+    <a href="/admin">
+        Admin
+    </a>
+</li>
+
+{% endif %}
+
+<li>
+    <a href="/register">
+        Register
+    </a>
+</li>
+
+{% endif %}
+    </ul>
+
+</nav>
+
+{% block content %}
+{% endblock %}
+
+</body>
+</html>

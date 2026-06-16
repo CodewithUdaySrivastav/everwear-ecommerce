@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div style="width:90%;margin:40px auto;">
+
+<h2>
+Results for "{{ query }}"
+</h2>
+
+<br>
+
+<div class="product-grid">
+
+{% for product in products %}
+
+<div class="card">
+
+    <img src="{{ product[3] }}">
+
+    <h3>{{ product[1] }}</h3>
+
+    <p class="price">
+        ₹{{ product[2] }}
+    </p>
+
+    <p>{{ product[4] }}</p>
+
+    <a href="/product/{{ product[0] }}">
+        <button class="btn">
+            View Product
+        </button>
+    </a>
+
+</div>
+
+{% endfor %}
+
+</div>
+
+</div>
+
+{% endblock %}

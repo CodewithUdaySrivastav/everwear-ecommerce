@@ -1,0 +1,131 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<section class="hero">
+
+    <h1>EVERWEAR</h1>
+
+    <p>Style That Lasts Forever</p>
+
+    <button class="shop-btn">
+        Shop Now
+    </button>
+
+</section>
+
+<section class="categories">
+
+    <a href="/category/Men">
+    <div class="category">👔 Men</div>
+</a>
+
+<a href="/category/Women">
+    <div class="category">👗 Women</div>
+</a>
+
+<a href="/category/Shoes">
+    <div class="category">👟 Shoes</div>
+</a>
+
+<a href="/category/Accessories">
+    <div class="category">⌚ Accessories</div>
+</a>
+
+</section>
+
+
+<section class="products">
+
+    <h2>Featured Products</h2>
+
+    <div class="product-grid">
+
+        {% for product in products %}
+
+        <div class="card">
+
+            <img src="{{ product[3] }}" alt="{{ product[1] }}">
+
+            <h3>{{ product[1] }}</h3>
+
+            <p style="font-size:22px;color:#ff6b00;font-weight:bold;">
+                ₹{{ product[2] }}
+            </p>
+
+            <p style="margin-top:10px;color:#666;">
+                {{ product[4] }}
+            </p>
+
+            <a href="/product/{{ product[0] }}">
+                <button class="btn">
+                    View Product
+                </button>
+            </a>
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+</section>
+
+<section style="padding:60px 5%; background:white; margin-top:50px;">
+
+    <h2 style="text-align:center;margin-bottom:40px;">
+        Why Choose EVERWEAR?
+    </h2>
+
+    <div style="
+        display:grid;
+        grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+        gap:30px;
+        text-align:center;
+    ">
+
+        <div>
+            <h3>🚚 Fast Delivery</h3>
+            <p>Get your products delivered quickly and safely.</p>
+        </div>
+
+        <div>
+            <h3>💯 Premium Quality</h3>
+            <p>Carefully selected fashion products with top quality.</p>
+        </div>
+
+        <div>
+            <h3>🔒 Secure Payments</h3>
+            <p>Safe and secure checkout experience.</p>
+        </div>
+
+        <div>
+            <h3>📦 Easy Returns</h3>
+            <p>Hassle-free returns and customer support.</p>
+        </div>
+
+    </div>
+
+</section>
+
+<footer style="
+    background:#111;
+    color:white;
+    text-align:center;
+    padding:25px;
+    margin-top:50px;
+">
+
+    <h3>EVERWEAR</h3>
+
+    <p>Style That Lasts Forever</p>
+
+    <br>
+
+    <p>
+        © 2026 EVERWEAR. All Rights Reserved.
+    </p>
+
+</footer>
+
+{% endblock %}
